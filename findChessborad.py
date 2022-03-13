@@ -15,7 +15,7 @@ def get_args():
     parser.add_argument("--height", type=int, default=768)
 
     parser.add_argument("--square_len", type=float, default=23.0)
-    parser.add_argument("--grid_size", type=str, default="10,7")
+    parser.add_argument("--grid_size", type=str, default="8,6")
 
     parser.add_argument("--k_filename", type=str, default="K_fisheye.csv")
     parser.add_argument("--d_filename", type=str, default="d_fisheye.csv")
@@ -60,7 +60,7 @@ def main():
         if key == 13 :
             found, corner = cv.findChessboardCorners(frame, grid_intersection_size)
             if found :
-                cv.imwrite('./img/' + str(capture_count) + '.jpg', frame)
+                cv.imwrite('./img/220_' + str(capture_count) + '.jpg', frame)
                 capture_count += 1
                 cv.drawChessboardCorners(frame_copy, grid_intersection_size, corner, found)
         cv.imshow('original', frame_copy)
