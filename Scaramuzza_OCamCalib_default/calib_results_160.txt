@@ -18,3 +18,6 @@
 
 768 1024
 
+# Average error[pixels] 0.625104
+# Sum of squared errors 417.080422
+
