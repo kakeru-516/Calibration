@@ -53,6 +53,7 @@ def main():
     grid_intersection_size = eval(args.grid_size)  # チェスボード内の格子数
 
     capture_count = 0
+    ip = input('このカメラが搭載されているREDのIP(下3桁)を入力してください')
     while (True):
         ret, frame = cap.read()
         frame_copy = frame.copy()
@@ -60,7 +61,7 @@ def main():
         if key == 13 :
             found, corner = cv.findChessboardCorners(frame, grid_intersection_size)
             if found :
-                cv.imwrite('./img/220_' + str(capture_count) + '.jpg', frame)
+                cv.imwrite('./img/' + ip + '_' + str(capture_count) + '.jpg', frame)
                 capture_count += 1
                 cv.drawChessboardCorners(frame_copy, grid_intersection_size, corner, found)
         cv.imshow('original', frame_copy)
